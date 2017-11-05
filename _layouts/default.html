@@ -4,8 +4,46 @@
 
 <body>
     {% include header.html %}
-    
-    {{content}}
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-lg-3 hidden-x hidder-sm aside1 fadein-left">
+                        <div class="profile box-shadow center">
+                                <div class="overlay"></div>
+                                <div class="center gavatar">
+                                    <a href="/" class="profile_gavatar"><img class="circle" src="{{ site.gavatar }}"></a>
+                                </div>
+                                <div class="address">
+                                    <h5><span class="fa fa-map-marker"></span> New York, USA</h5>
+                                </div>
+                                <div class="center profile_desc">
+                                    {{ site.profile_desc }}
+                                </div>
+                            </div>
+                            
+                            <div class="tag-cloud-text">
+                                <a href="http://blademastercoder.github.io/pages/tags.html" title="标签" class="pjaxlink"><p class="center">标签</p></a>
+                            </div>
+                            <div class="tag-cloud ">	
+                                <hr>
+                                <div class="page-tag">
+                                        {% for tag in site.tags %}
+                                            <a href="http://blademastercoder.github.io/pages/tags.html#{{tag[0]}}" name="{{tag[0]}}" class="pjaxlink"><i class="fa fa-tags"></i>{{ tag[0] }}({{tag[1].size}})</a>
+                                        {% endfor %}
+                                </div>					
+                            </div>
+
+                </div>
+
+                <!-- CONTENT -->
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 box-shadow fadein-right aside2">
+                    <div class="page-content" id="pjax">{{content}}</div>				
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- {{content}} -->
     {% include footer.html %}
 </body>
 </html>
